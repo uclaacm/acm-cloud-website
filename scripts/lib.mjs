@@ -16,6 +16,7 @@ const getCssStringFromCommittee = (committee) => {
     case 'icpc':
     case 'studio':
     case 'w':
+    case 'cloud':
       return committee.toLowerCase();
     default:
       throw new Error(`Unrecognized string ${committee}`);
@@ -137,6 +138,7 @@ const generateCommittee = ({
   } else if (logoLink.includes('drive.google.com')) {
     const fileID = logoLink.match(/\/file\/d\/(.+?)\//)[1];
     logoLink = `https://drive.google.com/uc?export=download&id=${fileID}`;
+    console.log(logoLink);
   }
 
   return {

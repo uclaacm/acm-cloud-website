@@ -47,7 +47,7 @@ const Footer = () => {
               <a>
                 <Image
                   src={committeeData[0].logoLink}
-                  width={100}
+                  width={165}
                   height={40}
                   alt="Logo"
                 />

@@ -46,6 +46,7 @@ export default async function getOfficerData(
     ['ICPC', 'icpc'],
     ['Teach LA', 'teachla'],
     ['W', 'w'],
+    ['Cloud', 'cloud'],
   ]);
   // // Store officer data
   const officers: object[] = []; // list of officers in desired committee
