@@ -1,0 +1,110 @@
+@use "../styles/global_variables.module.scss" as vars;
+
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 2rem 6rem;
+  flex: 1;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin: 1rem;
+  font-size: 3.5rem;
+}
+
+.subtitle {
+  margin: 1.25rem 1.5rem 0;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+.description {
+  margin: 1rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.boardgrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  // max-width: 50%;
+}
+
+.gmgrid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  // max-width: 800px;
+}
+
+.card {
+  margin: 1rem;
+  color: inherit;
+  text-decoration: none;
+
+  // grid-area: card;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 2rem 3rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    margin-top: 0;
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .title {
+    margin: 1rem 0;
+  }
+
+  .subtitle {
+    margin-left: 0.5rem;
+  }
+
+  .description {
+    margin-left: 0.5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+
+  .code {
+    background: #111;
+  }
+
+  .logo img {
+    filter: invert(1);
+  }
+}
