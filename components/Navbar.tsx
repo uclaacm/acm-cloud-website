@@ -46,9 +46,9 @@ const Navbar = () => {
               <a className="force-child-display-block">
                 <Image
                   src={committeeData[0].logoLink}
-                  width={106}
+                  width={165}
                   height={40}
-                  alt="Open Source at ACM Home"
+                  alt="acm cloud at ucla home"
                 />
               </a>
             </Link>
