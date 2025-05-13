@@ -1,17 +1,18 @@
 import { resolve } from 'path';
 import dotenv from 'dotenv';
-import { google } from 'googleapis';
+// import { google } from 'googleapis'; // Commented out as Google Sheets is not accessible
 import { getCssStringFromCommittee, generateCommittee } from './lib.mjs';
 
 // .env config
 dotenv.config({ path: '.env.local' });
 const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
-const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? '';
+// const SERVICE_ACCOUNT = process.env.SERVICE_ACCOUNT ?? ''; // Commented out as Google Sheets is not accessible
 
 //Grab main information to be displayed
 //and write to output.json
 async function getCommitteeInfo(name) {
-  const committees = await getGoogleSheetData('committee info!A:J');
+  // const committees = await getGoogleSheetData('committee info!A:J'); // Commented out
+  const committees = []; // Placeholder since Google Sheets is not accessible
   const committee = [];
   //get committee
   for (const row of committees) {
@@ -51,40 +52,42 @@ async function getCommitteeInfo(name) {
 
 // Read data from Google sheets
 // using sheet range (eg: 'Week 1!A:H)
-async function getGoogleSheetData(range) {
-  const sheets = google.sheets({ version: 'v4' });
+// async function getGoogleSheetData(range) { // Commented out
+//   const sheets = google.sheets({ version: 'v4' });
 
-  // Get JWT Token to access sheet
-  const service_account = JSON.parse(SERVICE_ACCOUNT);
-  const jwtClient = new google.auth.JWT(
-    service_account.client_email,
-    '',
-    service_account.private_key,
-    ['https://www.googleapis.com/auth/spreadsheets'],
-  );
-  jwtClient.authorize(function (err) {
-    if (err) {
-      throw err;
-    }
-  });
+//   // Validate SERVICE_ACCOUNT
+//   if (!SERVICE_ACCOUNT || SERVICE_ACCOUNT === '{}') {
+//     console.error('SERVICE_ACCOUNT environment variable is missing or invalid.');
+//     console.error('Ensure that .env.local contains a valid SERVICE_ACCOUNT JSON string.');
+//     throw new Error('SERVICE_ACCOUNT environment variable is missing or invalid.');
+//   }
 
-  // Get data from Google spreadsheets
-  const res = await sheets.spreadsheets.values.get({
-    auth: jwtClient,
-    spreadsheetId: SPREADSHEET_ID,
-    range: range,
-  });
-  const rows = res?.data.values;
-  if (!rows || rows.length == 0) {
-    console.log('Error: no data found');
-    return [];
-  }
+//   // Get JWT Token to access sheet
+//   const service_account = JSON.parse(SERVICE_ACCOUNT);
+//   const jwtClient = new google.auth.JWT(
+//     service_account.client_email,
+//     '',
+//     service_account.private_key,
+//     ['https://www.googleapis.com/auth/spreadsheets'],
+//   );
+//   jwtClient.authorize(function (err) {
+//     if (err) {
+//       throw err;
+//     }
+//   });
 
-  // // Replacing the new lines with <br/> (doesnt work tho)
-  // const formatRows = rows.map((row) => row.map( (r) => r.replace(/\n/g, '<br/>')));
-  // return formatRows;
+//   // Get data from Google spreadsheets
+//   const res = await sheets.spreadsheets.values.get({
+//     auth: jwtClient,
+//     spreadsheetId: SPREADSHEET_ID,
+//     range: range,
+//   });
+//   const rows = res?.data.values;
+//   if (!rows || rows.length == 0) {
+//     console.log('Error: no data found');
+//     return [];
 
-  return rows;
-}
+//   return rows;
+// }
 
 export default getCommitteeInfo;

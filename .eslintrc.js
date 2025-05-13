@@ -26,7 +26,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
 
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': 'off', // Disable linebreak-style rule
 
     '@typescript-eslint/no-require-imports': ['error'],
 

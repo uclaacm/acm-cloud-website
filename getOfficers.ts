@@ -10,6 +10,10 @@ export default async function getOfficerData(
   committeeName: string,
 ): Promise<object[]> {
   const sheets = google.sheets({ version: 'v4' });
+  // Validate SERVICE_ACCOUNT
+  if (!SERVICE_ACCOUNT || SERVICE_ACCOUNT === '{}') {
+    throw new Error('SERVICE_ACCOUNT environment variable is missing or invalid.');
+  }
   // Get JWT Token to access sheet
   const service_account = JSON.parse(SERVICE_ACCOUNT);
   const jwtClient = new google.auth.JWT(
@@ -30,8 +34,8 @@ export default async function getOfficerData(
     range: 'Officers',
   });
   const rows = res?.data.values;
-  if (!rows || rows.length == 0) {
-    throw new Error('Error: no data found');
+  if (!rows || rows.length === 0) {
+    throw new Error('Error: no data found in the Google Sheets response.');
   }
   // Map committee names in the spreadsheet to more concise names
   // Ignore board as it's not a committee
