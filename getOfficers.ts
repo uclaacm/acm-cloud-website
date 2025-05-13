@@ -28,5 +28,7 @@ export default async function getOfficerData(
     },
   ];
 
-  return officers.filter((officer) => officer.position.toLowerCase().includes(committeeName.toLowerCase()));
+  return officers.filter((officer) =>
+    officer.position.toLowerCase().includes(committeeName.toLowerCase()),
+  );
 }

@@ -13,7 +13,18 @@ const SPREADSHEET_ID = process.env.LANDING_SPREADSHEET_ID;
 async function getCommitteeInfo(name) {
   // const committees = await getGoogleSheetData('committee info!A:J'); // Commented out
   const committees = [
-    ['Cloud', 'ACM Cloud', 'Subtitle', 'Description', 'logo.png', 'discord.com', 'instagram.com', 'email@example.com', 'favicon.ico', 'background.png'],
+    [
+      'Cloud',
+      'ACM Cloud',
+      'Subtitle',
+      'Description',
+      'logo.png',
+      'discord.com',
+      'instagram.com',
+      'email@example.com',
+      'favicon.ico',
+      'background.png',
+    ],
   ]; // Mock data to prevent build errors
   const committee = [];
   //get committee
