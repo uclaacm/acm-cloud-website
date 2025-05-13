@@ -17,7 +17,11 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['import', 'react', '@typescript-eslint'],
-
+  settings: {
+    react: {
+      version: 'detect', // Automatically detect the React version
+    },
+  },
   rules: {
     //yoinked from TLA, CreativeLabs, Opensource starters
     // A few more opinions in addition to extensions

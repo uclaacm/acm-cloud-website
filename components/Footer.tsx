@@ -70,7 +70,7 @@ const Footer = () => {
           </section>
           <section className={styles.footerlogo}>
             <a
-               href="https://discord.gg/aFwCC5ub7M" // Forces the correct Discord link
+              href="https://discord.gg/aFwCC5ub7M" // Forces the correct Discord link
               target="_blank"
               rel="noreferrer"
             >
