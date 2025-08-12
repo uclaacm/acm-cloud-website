@@ -56,7 +56,7 @@ const Footer = () => {
           </section>
           <section className={styles.footerlogo}>
             <a
-              href={`https://${committeeData[0].igLink}`}
+              href="https://www.instagram.com/acmcloud/" // Forces the correct Instagram link
               target="_blank"
               rel="noreferrer"
             >
@@ -70,7 +70,7 @@ const Footer = () => {
           </section>
           <section className={styles.footerlogo}>
             <a
-              href={`https://${committeeData[0].dcLink}`}
+              href="https://discord.gg/aFwCC5ub7M" // Forces the correct Discord link
               target="_blank"
               rel="noreferrer"
             >

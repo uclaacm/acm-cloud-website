@@ -17,7 +17,11 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['import', 'react', '@typescript-eslint'],
-
+  settings: {
+    react: {
+      version: 'detect', // Automatically detect the React version
+    },
+  },
   rules: {
     //yoinked from TLA, CreativeLabs, Opensource starters
     // A few more opinions in addition to extensions
@@ -26,7 +30,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
 
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': 'off', // Disable linebreak-style rule
 
     '@typescript-eslint/no-require-imports': ['error'],
 
